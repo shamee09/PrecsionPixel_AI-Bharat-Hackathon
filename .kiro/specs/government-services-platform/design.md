@@ -20,7 +20,89 @@ The Government Services Platform is a multilingual, AI-powered information syste
 - **Database**: Hybrid approach with cloud database for schemes/resources and local SQLite for offline cache
 - **Frontend**: Progressive Web App (PWA) for cross-platform support and offline capabilities
 
-## Architecture
+### Use Case Diagram
+
+graph TB
+
+User[User / Citizen]
+Admin[Admin]
+AI[AI System]
+API[Government Data Source]
+
+subgraph AI_Community_Access_Assistant
+    UC1((Authenticate User))
+    UC2((Submit Query))
+    UC3((Retrieve Government Scheme Information))
+    UC4((Access Education Resources))
+    UC5((Translate Content to Local Language))
+    UC6((Interact via Voice Interface))
+    UC7((Provide Feedback))
+    UC8((Manage Content))
+    UC9((Monitor System Usage))
+end
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+
+Admin --> UC8
+Admin --> UC9
+
+UC2 --> AI
+UC3 --> API
+UC4 --> API
+
+
+### User Interface Wireframes
+graph TB
+
+H1[Header: Logo + Language Selector]
+H2[Large Search Bar]
+H3[Voice Input Button]
+H4[Government Schemes Card]
+H5[Education Resources Card]
+H6[Local Help Card]
+
+H1 --> H2 --> H3
+H3 --> H4
+H3 --> H5
+H3 --> H6
+
+C1[Chat Window Layout]
+C2[User Message Area]
+C3[AI Response Section]
+C4[Translate Button]
+C5[Low Bandwidth Toggle]
+
+C1 --> C2 --> C3
+C3 --> C4
+C3 --> C5
+
+G1[Filter Sidebar: Category / Eligibility]
+G2[Scheme Cards List]
+G3[Apply Button]
+G4[Learn More Button]
+
+G1 --> G2 --> G3
+G2 --> G4
+
+E1[Search Panel]
+E2[Recommendation Panel]
+E3[Resource Cards Grid]
+
+E1 --> E3
+E2 --> E3
+
+A1[Manage Content Panel]
+A2[Usage Analytics Section]
+A3[Update Resources Form]
+
+A1 --> A2 --> A3
+
 
 ### High-Level Architecture
 
